@@ -1,0 +1,127 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGC.Event.API", "API\OGC.Event.API\OGC.Event.API.csproj", "{5DC9C0A9-6570-43BD-83ED-9ECBFDC703D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{A0B2CED3-5E54-4A3C-8A53-113C6B698C34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGC.Data.SharePoint", "API\OGC.Data.SharePoint\OGC.Data.SharePoint.csproj", "{96B08114-90C8-4606-9EA7-B85BEB2F186C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OMB.SharePoint.Infrastructure", "API\OMB.SharePoint.Infrastructure\OMB.SharePoint.Infrastructure.csproj", "{9541C049-5884-486B-85C2-3E8672CA1E7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGC.Training.API", "API\OGC.Training.API\OGC.Training.API.csproj", "{44847F82-396E-452A-A348-5BA71DEBEB19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGC.Form450.API", "API\OGC.Form450.API\OGC.Form450.API.csproj", "{64695A13-A05C-4593-BC49-02C2E2B24492}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{E641E722-B83B-4472-88D6-22D5B5CD2DFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGC-Events-Web", "UI\OGC-Events-Web\OGC-Events-Web.csproj", "{4115A7E4-1665-4628-9469-8AD2086CE0F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGC-OGE450-Web", "UI\OGC-OGE450-Web\OGC-OGE450-Web.csproj", "{767986EC-685A-4109-95BF-0C0F148C33E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGC-Training-Web", "UI\OGC-Training-Web\OGC-Training-Web.csproj", "{9E733952-7DE1-41C4-919F-66F390374A67}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Prod|Any CPU = Prod|Any CPU
+		Test|Any CPU = Test|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5DC9C0A9-6570-43BD-83ED-9ECBFDC703D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC9C0A9-6570-43BD-83ED-9ECBFDC703D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC9C0A9-6570-43BD-83ED-9ECBFDC703D6}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+		{5DC9C0A9-6570-43BD-83ED-9ECBFDC703D6}.Prod|Any CPU.Build.0 = Prod|Any CPU
+		{5DC9C0A9-6570-43BD-83ED-9ECBFDC703D6}.Test|Any CPU.ActiveCfg = Test|Any CPU
+		{5DC9C0A9-6570-43BD-83ED-9ECBFDC703D6}.Test|Any CPU.Build.0 = Test|Any CPU
+		{96B08114-90C8-4606-9EA7-B85BEB2F186C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96B08114-90C8-4606-9EA7-B85BEB2F186C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96B08114-90C8-4606-9EA7-B85BEB2F186C}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+		{96B08114-90C8-4606-9EA7-B85BEB2F186C}.Prod|Any CPU.Build.0 = Prod|Any CPU
+		{96B08114-90C8-4606-9EA7-B85BEB2F186C}.Test|Any CPU.ActiveCfg = Test|Any CPU
+		{96B08114-90C8-4606-9EA7-B85BEB2F186C}.Test|Any CPU.Build.0 = Test|Any CPU
+		{9541C049-5884-486B-85C2-3E8672CA1E7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9541C049-5884-486B-85C2-3E8672CA1E7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9541C049-5884-486B-85C2-3E8672CA1E7E}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+		{9541C049-5884-486B-85C2-3E8672CA1E7E}.Prod|Any CPU.Build.0 = Prod|Any CPU
+		{9541C049-5884-486B-85C2-3E8672CA1E7E}.Test|Any CPU.ActiveCfg = Test|Any CPU
+		{9541C049-5884-486B-85C2-3E8672CA1E7E}.Test|Any CPU.Build.0 = Test|Any CPU
+		{44847F82-396E-452A-A348-5BA71DEBEB19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44847F82-396E-452A-A348-5BA71DEBEB19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44847F82-396E-452A-A348-5BA71DEBEB19}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+		{44847F82-396E-452A-A348-5BA71DEBEB19}.Prod|Any CPU.Build.0 = Prod|Any CPU
+		{44847F82-396E-452A-A348-5BA71DEBEB19}.Test|Any CPU.ActiveCfg = Test|Any CPU
+		{44847F82-396E-452A-A348-5BA71DEBEB19}.Test|Any CPU.Build.0 = Test|Any CPU
+		{64695A13-A05C-4593-BC49-02C2E2B24492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64695A13-A05C-4593-BC49-02C2E2B24492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64695A13-A05C-4593-BC49-02C2E2B24492}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+		{64695A13-A05C-4593-BC49-02C2E2B24492}.Prod|Any CPU.Build.0 = Prod|Any CPU
+		{64695A13-A05C-4593-BC49-02C2E2B24492}.Test|Any CPU.ActiveCfg = Test|Any CPU
+		{64695A13-A05C-4593-BC49-02C2E2B24492}.Test|Any CPU.Build.0 = Test|Any CPU
+		{4115A7E4-1665-4628-9469-8AD2086CE0F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4115A7E4-1665-4628-9469-8AD2086CE0F4}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+		{4115A7E4-1665-4628-9469-8AD2086CE0F4}.Test|Any CPU.ActiveCfg = Test|Any CPU
+		{767986EC-685A-4109-95BF-0C0F148C33E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{767986EC-685A-4109-95BF-0C0F148C33E5}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+		{767986EC-685A-4109-95BF-0C0F148C33E5}.Test|Any CPU.ActiveCfg = Test|Any CPU
+		{9E733952-7DE1-41C4-919F-66F390374A67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E733952-7DE1-41C4-919F-66F390374A67}.Prod|Any CPU.ActiveCfg = Prod|Any CPU
+		{9E733952-7DE1-41C4-919F-66F390374A67}.Test|Any CPU.ActiveCfg = Test|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5DC9C0A9-6570-43BD-83ED-9ECBFDC703D6} = {A0B2CED3-5E54-4A3C-8A53-113C6B698C34}
+		{96B08114-90C8-4606-9EA7-B85BEB2F186C} = {A0B2CED3-5E54-4A3C-8A53-113C6B698C34}
+		{9541C049-5884-486B-85C2-3E8672CA1E7E} = {A0B2CED3-5E54-4A3C-8A53-113C6B698C34}
+		{44847F82-396E-452A-A348-5BA71DEBEB19} = {A0B2CED3-5E54-4A3C-8A53-113C6B698C34}
+		{64695A13-A05C-4593-BC49-02C2E2B24492} = {A0B2CED3-5E54-4A3C-8A53-113C6B698C34}
+		{4115A7E4-1665-4628-9469-8AD2086CE0F4} = {E641E722-B83B-4472-88D6-22D5B5CD2DFD}
+		{767986EC-685A-4109-95BF-0C0F148C33E5} = {E641E722-B83B-4472-88D6-22D5B5CD2DFD}
+		{9E733952-7DE1-41C4-919F-66F390374A67} = {E641E722-B83B-4472-88D6-22D5B5CD2DFD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49BD3A1E-3DDA-4AD3-A172-041197A739A8}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://code.login.omb.gov/tfs/mod
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = API\\OGC.Data.SharePoint\\OGC.Data.SharePoint.csproj
+		SccProjectTopLevelParentUniqueName1 = OGC.Ethics.sln
+		SccProjectName1 = API/OGC.Data.SharePoint
+		SccLocalPath1 = API\\OGC.Data.SharePoint
+		SccProjectUniqueName2 = API\\OGC.Event.API\\OGC.Event.API.csproj
+		SccProjectTopLevelParentUniqueName2 = OGC.Ethics.sln
+		SccProjectName2 = API/OGC.Event.API
+		SccLocalPath2 = API\\OGC.Event.API
+		SccProjectUniqueName3 = API\\OGC.Form450.API\\OGC.Form450.API.csproj
+		SccProjectTopLevelParentUniqueName3 = OGC.Ethics.sln
+		SccProjectName3 = API/OGC.Form450.API
+		SccLocalPath3 = API\\OGC.Form450.API
+		SccProjectUniqueName4 = API\\OGC.Training.API\\OGC.Training.API.csproj
+		SccProjectTopLevelParentUniqueName4 = OGC.Ethics.sln
+		SccProjectName4 = API/OGC.Training.API
+		SccLocalPath4 = API\\OGC.Training.API
+		SccProjectUniqueName5 = API\\OMB.SharePoint.Infrastructure\\OMB.SharePoint.Infrastructure.csproj
+		SccProjectTopLevelParentUniqueName5 = OGC.Ethics.sln
+		SccProjectName5 = API/OMB.SharePoint.Infrastructure
+		SccLocalPath5 = API\\OMB.SharePoint.Infrastructure
+		SccProjectUniqueName6 = UI\\OGC-Events-Web\\OGC-Events-Web.csproj
+		SccProjectTopLevelParentUniqueName6 = OGC.Ethics.sln
+		SccProjectName6 = UI/OGC-Events-Web
+		SccLocalPath6 = UI\\OGC-Events-Web
+		SccProjectUniqueName7 = UI\\OGC-OGE450-Web\\OGC-OGE450-Web.csproj
+		SccProjectTopLevelParentUniqueName7 = OGC.Ethics.sln
+		SccProjectName7 = UI/OGC-OGE450-Web
+		SccLocalPath7 = UI\\OGC-OGE450-Web
+		SccProjectUniqueName8 = UI\\OGC-Training-Web\\OGC-Training-Web.csproj
+		SccProjectTopLevelParentUniqueName8 = OGC.Ethics.sln
+		SccProjectName8 = UI/OGC-Training-Web
+		SccLocalPath8 = UI\\OGC-Training-Web
+	EndGlobalSection
+EndGlobal
