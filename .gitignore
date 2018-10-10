@@ -1,0 +1,25 @@
+# Source Control
+**/.vs
+**/.git
+
+# compiled output
+**/dist
+**/tmp
+**/Publish
+
+# dependencies
+**/node_modules
+**/bin
+**/obj
+
+# config
+**/Web.config
+**/Web.*.config
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+#System Files
+.DS_Store
+Thumbs.db
