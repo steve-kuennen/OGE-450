@@ -13,8 +13,8 @@
 **/obj
 
 # config
-**/Web.config
 **/Web.*.config
+**/environment.*.ts
 
 # e2e
 /e2e/*.js
