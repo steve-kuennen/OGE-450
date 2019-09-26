@@ -356,6 +356,11 @@ export class EventRequestComponent implements OnInit, AfterViewInit {
 
     assignMe(att: Attendee) {
         att.employee = this.userService.user;
+        //att.nameOfSupervisor = this.userService.user.manager;
+    }
+
+    employeeSelect(event) {
+        //console.log(event);
     }
 }
 

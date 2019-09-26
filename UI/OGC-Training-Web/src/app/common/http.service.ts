@@ -1,4 +1,4 @@
-﻿import {     Injectable } from '@angular/core';
+import {     Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
@@ -29,7 +29,8 @@ export class HttpService extends Http {
     // ***
     request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
         // If we're the healthcheck page, don't handle the error
-        if ((url as Request).url.toLowerCase().includes('healthcheck'))
+        var checkUrl = (url as Request).url.toLowerCase();
+        if (checkUrl.includes('healthcheck') || checkUrl.includes('training'))
             return this.intercept(super.request(url, options).catch((res) => { return Observable.throw(res); }));
         else
             return this.intercept(super.request(url, options).catch(this.handleError));

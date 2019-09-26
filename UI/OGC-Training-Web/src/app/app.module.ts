@@ -56,6 +56,7 @@ import { MomentModule } from 'angular2-moment'; // optional, provides moment-sty
 import { TrainingGridComponent } from './training/training-grid/training-grid.component';
 import { EditTrainingComponent } from './home/edit-training/edit-training.component';
 import { NotificationComponent } from './home/notification/notification.component';
+import { TrainingComponent } from './training/training.component';
 
 // App Services go here
 import { TrainingService } from './training/training.service';
@@ -65,6 +66,7 @@ import { ChartService } from './admin/charts/chart.service';
 import { TrainingChartService } from './training/training-chart/training-chart.service';
 import { OGEForm450Service } from './oge-form-450/oge-form-450.service';
 import { EventRequestService } from './event-request/event-request.service';
+import { VideoService } from './training/video.service';
 
 export function httpServiceFactory(backend: XHRBackend, options: RequestOptions, router: Router) {
     return new HttpService(backend, options, router);
@@ -111,6 +113,7 @@ export function httpServiceFactory(backend: XHRBackend, options: RequestOptions,
         TrainingGridComponent,
         EditTrainingComponent,
         NotificationComponent,
+        TrainingComponent,
     ],
     providers: [
         {
@@ -135,6 +138,7 @@ export function httpServiceFactory(backend: XHRBackend, options: RequestOptions,
         OGEForm450Service,
         ChartService,
         EventRequestService,
+        VideoService
     ],
     bootstrap: [
         AppComponent

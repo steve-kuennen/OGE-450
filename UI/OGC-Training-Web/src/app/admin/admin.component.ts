@@ -15,6 +15,8 @@ import { NotificationTemplateService } from './edit-templates/notification-templ
 import { NotificationTemplate } from './edit-templates/notification-template';
 
 import 'rxjs/Rx';
+import { SelectItem } from 'primeng/primeng';
+import { Lookups } from 'app/common/constants';
 
 declare var $: any;
 
@@ -49,7 +51,8 @@ export class AdminComponent implements OnInit {
 
     employees: any[];
 
-    currentYear: number;
+    selectedYear: number;
+    years: SelectItem[];
 
     constructor(private trainingService: TrainingService,
         private templateService: NotificationTemplateService,
@@ -57,7 +60,9 @@ export class AdminComponent implements OnInit {
         private router: Router
     ) {
         var dt = new Date();
-        this.currentYear = dt.getFullYear();
+        this.selectedYear = dt.getFullYear();
+        this.years = Lookups.YEARS.filter(x => x.value != null);
+        
         //this.employees = [
         //    {
         //        employeesName: 'Washington, George',
@@ -117,6 +122,11 @@ export class AdminComponent implements OnInit {
         //};
     }
 
+    switchToYear(year: number) {
+        this.selectedYear = year;
+        this.loadTrainingChart();
+    }
+
     ngOnInit(): void {
         this.loadTrainings();
         this.loadTrainingChart();
@@ -167,7 +177,7 @@ export class AdminComponent implements OnInit {
         };
 
         this.chartService
-            .getTrainingChartData()
+            .getTrainingChartData(this.selectedYear)
             .then(response => {
                 this.trainingChartData = response;
 
@@ -248,18 +258,20 @@ export class AdminComponent implements OnInit {
     runReport(): void {
         //window.open(environment.apiUrl + '/training?a=missingtrainingreport', '_self');
         this.trainingService
-            .getMissingTrainingReport()
+            .getMissingTrainingReport(this.selectedYear)
             .then(response => {
+                console.log(response.headers);
                 var type = response.headers.get('content-type');
+                console.log(type);
                 var filename = response.headers.get('content-disposition');
-
+                console.log(filename);
                 var start = filename.indexOf('filename=') + 10;
 
                 filename = filename.substr(start, filename.length - start - 1);
 
                 var blob = new Blob([response._body], { type: type });
 
-                var url = window.URL.createObjectURL(blob, { oneTimeOnly: true });
+                var url = window.URL.createObjectURL(blob);
 
                 //window.open(url, '_self');
 

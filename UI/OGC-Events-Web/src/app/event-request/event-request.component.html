@@ -45,16 +45,20 @@
                                         (OMB Staff Use Only)
                                     </h4>
                                     <p>
-                                        Federal ethics rules govern the ability of OMB employees to accept gifts – and a “gift” includes free admission and/or travel and related expenses to attend events hosted by non-governmental sponsors. Such events include (but are not limited to) banquets, conferences, or cocktail receptions. Accordingly, if you receive an invitation to attend such an event for free, you need pre-approval from the OMB General Counsel’s Office before accepting it. We also ask that if you are invited to speak at an event – whether in your personal or official capacity – you seek advance approval using this portal, as many speaking engagements raise ethics issues that may not be immediately apparent. All events involving open media will be sent to OMB Communications for coordination and clearance. Similarly, all events involving international travel will be sent to MOD for additional coordination and approval. You will receive separate emails from Comms and MOD with appropriate follow-up and/or further coordination prior to approval.
+                                        Federal ethics rules govern the ability of OMB employees to accept gifts – and a “gift” includes free admission, free meals, and/or travel and related expenses to attend events hosted by non-governmental sponsors. Such events include
+                                        (but are not limited to) banquets, conferences, or cocktail receptions. Accordingly, if you receive an invitation to attend such an event for free, you need pre-approval from the OMB General Counsel’s Office before accepting it. We
+                                        also ask that if you are invited to speak at an event – whether in your personal or official capacity – you seek advance approval using this portal, as many speaking engagements raise ethics issues that may not be immediately apparent.
+                                        All official speaking events will be sent to OMB Communications for coordination and clearance. Similarly, all events involving international travel will be sent to MOD for additional coordination and approval. You will receive separate
+                                        emails from Comms and MOD with appropriate follow-up and/or further coordination prior to approval.
                                     </p>
                                     <p>
                                         For any event involving travel that will be paid for by a non-Federal entity, make sure that you attach the Travel Form to the event request. Please use this online form to request permission from the OMB General Counsel’s Office to accept an event invitation. It asks for all the information needed for us to consider your request. Accordingly, please answer the questions on the form completely and clearly. They key is that OGC and Comms need the information in this online form to respond to your request.
                                     </p>
                                     <p>
-                                        Please submit this form to OGC as soon as you receive an invitation, and at least 72 hours before the event. Once the OMB General Counsel’s Office has reviewed your request, you can expect to receive an email with our response.
+                                        Please submit this form to OGC as soon as you receive an invitation, and at least one week before the event. Once the OMB General Counsel’s Office has reviewed your request, you can expect to receive an email with our response.
                                     </p>
                                     <p>
-                                        LATE REQUESTS: If you must submit a request for an event less than 72 hours in advance, please first submit this form and then notify Yasaman Sutton of your urgent request.
+                                        LATE REQUESTS: If you must submit a request for an event less than one week in advance, please first submit this form and then notify Laurie Adams of your urgent request.
                                     </p>
                                     <p>
                                         <strong>The OMB General Counsel’s Office may not be able to provide guidance on short notice.</strong>
@@ -92,11 +96,30 @@
                             <div class="row">
                                 <div class="col-sm-3 control-label required">Name of Attendee</div>
                                 <div class="col-sm-6">
-                                    <p-autoComplete appendTo="body" [(ngModel)]="att.employee" [suggestions]="results" (completeMethod)="search($event)" [minLength]="3" field="displayName" [style]="{'width':'100%', 'display':'inline-block'}" [class]="form-control" [inputStyle]="{'width':'100%'}"></p-autoComplete>
+                                    <p-autoComplete appendTo="body" [(ngModel)]="att.employee" [suggestions]="results" (completeMethod)="search($event)" (onSelect)="employeeSelect($event)" [minLength]="3" field="displayName" [style]="{'width':'100%', 'display':'inline-block'}" [class]="form-control" [inputStyle]="{'width':'100%'}"></p-autoComplete>
                                     <a (click)="assignMe(att)" *ngIf="!amIGoing()">I am going</a>
                                 </div>
                                 <div class="col-sm-3">
                                     <span style="cursor: pointer; color: red;" class="glyphicon glyphicon-remove pull-right" (click)="delete(att)" title="Remove Attendee"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3 control-label required">Has your supervisor been informed of this request?</div>
+                                <div class="col-sm-6">
+                                    <label class="options"><input required id="rbInformed" type="radio" name="rbInformed-{{att.id == 0 ? att.guid : att.id}}" title="Has your supervisor been informed of this request?" [value]="true" [(ngModel)]="att.informedSupervisor" /><span class="checkmark"></span><span class="checkmark-inner"></span><span class="checkboxLabel">Yes</span></label>
+                                    <label class="options"><input required type="radio" name="rbInformed-{{att.id == 0 ? att.guid : att.id}}" title="" [value]="false" [(ngModel)]="att.informedSupervisor" /><span class="checkmark"></span><span class="checkmark-inner"></span><span class="checkboxLabel">No</span></label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <small>&nbsp;</small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3 control-label required">Name of supervisor?</div>
+                                <div class="col-sm-6">
+                                    <input required id="txtSupervisorName" title="Supervisor Name" type="text" class="form-control" [(ngModel)]="att.nameOfSupervisor" />
+                                </div>
+                                <div class="col-sm-3">
+                                    <small>&nbsp;</small>
                                 </div>
                             </div>
                             <div class="row">

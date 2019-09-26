@@ -6,12 +6,12 @@
 export const environment = {
     production: true,
     envName: 'prod',
-    apiUrl: 'https://ethics.omb.gov/events-api/api/',
-    clientId: 'd26b0eb6-6c0d-4292-8419-f3ea86a4f338',
     base: '/events/',
     debug: false,
     idleTimeout: 3540,
     idleCountdown: 60,
-    sharePointUrl: 'https://portal.omb.gov/sites/ogc/',
-    portalUrl: 'https://ethics.omb.gov/',
+    apiUrl: 'URL for API',
+    clientId: 'Active Directory Client ID for login',
+    sharePointUrl: 'URL to SharePoint Instance',
+    portalUrl: 'URL to Portal (aka Training)',
 };

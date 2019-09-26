@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChange } from '@angular/core';
 
 import { Notifications } from '../../notifications/notifications.model';
 
@@ -18,6 +18,10 @@ export class NotificationComponent implements OnInit {
     @Output()
     close = new EventEmitter<any>();
 
+    public isVideo: boolean = false;
+    public vidSrc: string;
+    public vidType: string;
+
     ngOnInit(): void {
 
     }
@@ -26,7 +30,14 @@ export class NotificationComponent implements OnInit {
         
     }
 
-    ngOnChanges(): void {
+    ngOnChanges(changes: { [propKey: string]: SimpleChange }): void {
+        if (changes["message"]) {
+            if (this.message && this.message.body.includes('[VIDEO]')) {
+                this.isVideo = true;
+
+                this.vidSrc = this.message.errorMessage;
+            }
+        }
     }
 
     cancel() {

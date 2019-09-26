@@ -1,4 +1,4 @@
-﻿// routing
+// routing
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -10,6 +10,7 @@ import { LogoutComponent } from "./security/logout/logout.component";
 import { ErrorComponent } from './error/error.component';
 import { PageNotFoundComponent } from './error/page-not-found.component';
 import { HealthCheckComponent } from './healthcheck/health-check.component';
+import { TrainingComponent } from './training/training.component';
 
 // guards
 import { LoggedInGuard } from "./security/logged-in.guard";
@@ -46,6 +47,10 @@ const appRoutes: Routes = [
     {
         path: 'healthcheck',
         component: HealthCheckComponent
+    },
+    {
+        path: 'training',
+        component: TrainingComponent
     },
     {
         path: "**",

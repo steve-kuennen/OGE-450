@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Diagnostics;
 using System.Web.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -45,7 +46,7 @@ namespace OGC.Training.API.Controllers
             catch(Exception ex2)
             {
                 // TODO: Log exception handling exception to file
-                
+                EventLog.WriteEntry("OGC.Training.API", ex.Message + "Trace" + ex.StackTrace, EventLogEntryType.Error, 121, short.MaxValue);
             }
             
             return InternalServerError(ex);

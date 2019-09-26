@@ -10,4 +10,6 @@ export class AppUser {
 
     phoneNumber: string;
     branch: string;
+
+    manager: string;
 }

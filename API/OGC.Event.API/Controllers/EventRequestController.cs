@@ -17,23 +17,23 @@ namespace OGC.Event.API.Controllers
             try
             {
                 var identity = HttpContext.Current.User.Identity as ClaimsIdentity;
-                AppUser = UserInfo.GetUser(identity);
+                //AppUser = UserInfo.GetUser(identity);
                 List<EventRequest> list;
 
-                if (AppUser.IsAdmin)
-                {
+                //if (AppUser.IsAdmin)
+                //{
                     list = EventRequest.GetAll().OrderBy(x => x.EventStartDate).ToList();
 
                     GetAttendeesForList(list);
-                }
-                else if (AppUser.IsReviewer)
-                {
-                    list = EventRequest.GetAll().Where(x => x.Status.Contains("Open")).OrderBy(x => x.EventStartDate).ToList();
+                //}
+                //else if (AppUser.IsReviewer)
+                //{
+                //    list = EventRequest.GetAll().Where(x => x.Status.Contains("Open")).OrderBy(x => x.EventStartDate).ToList();
 
-                    GetAttendeesForList(list);
-                }
-                else
-                    list = GetMyEvents(AppUser);
+                //    GetAttendeesForList(list);
+                //}
+                //else
+                //    list = GetMyEvents(AppUser);
 
                 return Json(list, CamelCase);
             }

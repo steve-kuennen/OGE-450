@@ -1,4 +1,8 @@
-
+<div class="row">
+    <div class="col-md-12">
+        <div *ngIf="dt" class="pull-right download-button"><i class="fa fa-file-excel-o" (click)="dt.exportCSV()" title="Download Event Report (csv)"></i></div>
+    </div>
+</div>
 <p-dataTable [value]="eventRequests" [paginator]="true" [rows]="15" [rowsPerPageOptions]="[15,30,60]" [responsive]="true" #dt>
     <!--<p-column [style]="{'width':'38px'}" selectionMode="multiple"></p-column>-->
     <p-column field="attendeesString" header="Attendee(s)" [sortable]="true" [filter]="true" [style]="{'width' : includeSubmitted ? '20%' : '25%'}" filterMatchMode="contains">

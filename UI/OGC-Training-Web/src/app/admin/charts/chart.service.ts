@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { AuthHttp } from 'angular2-jwt';
 import { environment } from '../../../environments/environment';
@@ -17,9 +17,9 @@ export class ChartService {
         this.serviceUrl = environment.apiUrl + this.list;
     }
 
-    getTrainingChartData(): Promise<TrainingChartData> {
+    getTrainingChartData(selectedYear: number): Promise<TrainingChartData> {
         return this.http
-            .get(this.serviceUrl + '?a=training')
+            .get(this.serviceUrl + '?a=training-' + selectedYear.toString())
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);

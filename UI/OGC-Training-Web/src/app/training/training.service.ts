@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { AuthHttp } from 'angular2-jwt';
 import { environment } from '../../environments/environment';
@@ -17,6 +17,7 @@ export class TrainingService {
         this.serviceUrl = environment.apiUrl + this.list;
     }
 
+
     getAll(): Promise<Training[]> {
         return this.http
             .get(this.serviceUrl)
@@ -34,8 +35,8 @@ export class TrainingService {
             .catch(this.handleError);
     }
 
-    getMissingTrainingReport(): Promise<any> {
-        var url = `${this.serviceUrl}?a=missingtrainingreport`;
+    getMissingTrainingReport(year: number): Promise<any> {
+        var url = `${this.serviceUrl}?a=missingtrainingreport-` + year.toString();
 
         return this.http.get(url)
             .toPromise()

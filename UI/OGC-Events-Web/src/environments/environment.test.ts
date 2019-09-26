@@ -6,12 +6,12 @@
 export const environment = {
     production: true,
     envName: 'test',
-    apiUrl: 'https://accessdev.omb.gov/events-api/api/',
-    clientId: 'd26b0eb6-6c0d-4292-8419-f3ea86a4f338',
     base: '/events/',
     debug: true,
     idleTimeout: 840,
     idleCountdown: 60,
-    sharePointUrl: 'https://devportal.omb.gov/sites/ogc/',
-    portalUrl: 'https://accessdev.omb.gov/portal',
+    apiUrl: 'URL for API',
+    clientId: 'Active Directory Client ID for login',
+    sharePointUrl: 'URL to SharePoint Instance',
+    portalUrl: 'URL to Portal (aka Training)',
 };

@@ -22,12 +22,22 @@ namespace OGC.Training.API.Controllers
                 var identity = HttpContext.Current.User.Identity as ClaimsIdentity;
                 AppUser = UserInfo.GetUser(identity);
 
+                var values = a.Split('-');
+                var year = "";
+                if (values.Length > 1)
+                {
+                    a = values[0];
+                    year = values[1];
+                }
+
+                
+
                 if (AppUser.IsAdmin || AppUser.IsReviewer)
                 {
                     switch (a)
                     {
                         case "training":
-                            return GetTrainingChartData();
+                            return GetTrainingChartData(year);
                         case "oge450":
                             return GetOGE450ChartData();
                         case "events":
@@ -45,17 +55,22 @@ namespace OGC.Training.API.Controllers
             }
         }
 
-        private IHttpActionResult GetTrainingChartData()
+        private IHttpActionResult GetTrainingChartData(string year)
         {
             var data = new TrainingChartData();
+            int tmp = 0;
+            var runForYear = DateTime.Now.Year;
+
+            if (int.TryParse(year, out tmp))
+                runForYear = Convert.ToInt32(year);
 
             var trainings = Data.SharePoint.Models.Training.GetAll().ToList();
             Data.SharePoint.Models.Training.SetInactiveFlag(trainings);
 
             var employees = Data.SharePoint.Models.Employee.GetAll();
 
-            data.CompletedTraining = trainings.Where(x => x.TrainingType == Data.SharePoint.Models.Constants.TrainingType.ANNUAL && x.Year == DateTime.Now.Year && x.Inactive == false).Count();
-            data.TotalEmployees = employees.Where(x => x.Inactive == false).Count();
+            data.CompletedTraining = trainings.Where(x => x.TrainingType == Data.SharePoint.Models.Constants.TrainingType.ANNUAL && x.Year == runForYear && x.Inactive == false).Count();
+            data.TotalEmployees = employees.Where(x => x.Inactive == false && (!x.AccountCreatedDate.HasValue || x.AccountCreatedDate.Value.Year <= runForYear)).Count();
 
             return Json(data, CamelCase);
         }

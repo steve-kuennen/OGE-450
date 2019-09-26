@@ -48,6 +48,14 @@ namespace OGC.Training.API.Controllers
             AppUser = UserInfo.GetUser(identity);
             List<Data.SharePoint.Models.Training> list;
 
+            var values = a.Split('-');
+            var year = "";
+            if (values.Length > 1)
+            {
+                year = values[1];
+                a = values[0];
+            }
+
             try
             {
                 switch (a)
@@ -57,7 +65,7 @@ namespace OGC.Training.API.Controllers
                         Data.SharePoint.Models.Training.SetInactiveFlag(list);
                         break;
                     case "missingtrainingreport":
-                        return GenerateMissingTrainingReport();
+                        return GenerateMissingTrainingReport(year);
                     default:
                         return BadRequest("No such action.");
                 }
@@ -71,17 +79,22 @@ namespace OGC.Training.API.Controllers
 
         }
 
-        private IHttpActionResult GenerateMissingTrainingReport()
+        private IHttpActionResult GenerateMissingTrainingReport(string year)
         {
             MemoryStream stream = new MemoryStream();
             StreamWriter writer = new StreamWriter(stream);
 
+            int tmp = 0;
             var currentYear = DateTime.Now.Year;
 
-            var employees = Employee.GetAll().Where(x => x.Inactive == false).ToList();
+            if (int.TryParse(year, out tmp))
+                currentYear = Convert.ToInt32(year);
+            
+
+            var employees = Employee.GetAll().Where(x => x.Inactive == false && (!x.AccountCreatedDate.HasValue || x.AccountCreatedDate.Value.Year <= currentYear)).ToList();
 
             var trainings = Data.SharePoint.Models.Training.GetAllBy("Year", currentYear);
-            var allTrainings = Data.SharePoint.Models.Training.GetAll();
+            var allTrainings = Data.SharePoint.Models.Training.GetAll().Where(x => x.Year <= currentYear);
 
             employees = employees.Where(x => trainings.Find(train => train.Employee.ToLower() == x.AccountName.ToLower()) == null).ToList();
 
@@ -113,6 +126,7 @@ namespace OGC.Training.API.Controllers
             HttpResponseMessage result = new HttpResponseMessage(HttpStatusCode.OK);
             result.Content = new StreamContent(stream);
             result.Content.Headers.ContentType = new MediaTypeHeaderValue("text/csv");
+            result.Content.Headers.Add("Access-Control-Expose-Headers", "Content-Disposition");
             result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment") { FileName = currentYear.ToString() + " Missing Training Report.csv" };
 
             return ResponseMessage(result);

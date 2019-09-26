@@ -43,12 +43,14 @@
     <div class="col-md-6">
         <div class="card card-underline">
             <div class="card-head">
-                <header>Training ({{currentYear}})</header>
+                <header>Training ({{selectedYear}})</header>
                 <div class="tools">
                     <div class="btn-group">
                         <a class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Menu"><i class="fa fa-bars"></i></a>
                         <ul class="dropdown-menu">
                             <li><a (click)="runReport()">Missing Training Report</a></li>
+                            <li><a class="separator">Select a Year:</a></li>
+                            <li *ngFor="let year of years"><a (click)="switchToYear(year.value)">{{year.value}}</a></li>
                         </ul>
                         <a class="btn btn-icon-toggle" (click)="refresh('training')"><i class="fa fa-refresh"></i></a>
                         <!--<a class="btn btn-icon-toggle"><i class="fa fa-cog"></i></a>-->

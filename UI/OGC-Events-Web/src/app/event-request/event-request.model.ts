@@ -77,6 +77,9 @@ export class Attendee {
     remarks: string;
     reasonForAttending: string;
 
+    informedSupervisor: boolean;
+    nameOfSupervisor: string;
+
     // UI Only
     selected: boolean;
     guid: string;

@@ -72,6 +72,7 @@ export class EventRequestDetailComponent implements OnInit {
     ngOnChanges(changes: { [propKey: string]: SimpleChange }): void {
         if (changes["eventId"]) {
             if (this.eventId) {
+                this.closedReason = "";
                 this.eventService.get(this.eventId).then(response => {
                     this.editEvent = response;
 

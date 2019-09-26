@@ -15,3 +15,12 @@ export class Training {
     year: number;
     inactive: boolean;
 }
+
+export class TrainingVideo {
+    constructor() {
+
+    }
+
+    id: number;
+    url: string;
+}

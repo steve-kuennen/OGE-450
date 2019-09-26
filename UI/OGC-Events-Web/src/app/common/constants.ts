@@ -1,4 +1,4 @@
-﻿export class EventStatus
+export class EventStatus
 {
     public static DRAFT: string = "Draft";
     public static UNASSIGNED: string = "Open - Unassigned";
@@ -7,6 +7,7 @@
     public static APPROVED: string = "Closed - Approved";
     public static CANCELED: string = "Closed - Canceled";
     public static WITHDRAWN: string = "Closed - Withdrawn";
+    public static DENIED: string = "Closed - Denied";
 }
 
 export class EventDateFilter {
@@ -72,6 +73,7 @@ export class Lookups {
         Lookups.EVENT_STATUSES.push({ label: EventStatus.APPROVED, value: EventStatus.APPROVED });
         Lookups.EVENT_STATUSES.push({ label: EventStatus.CANCELED, value: EventStatus.CANCELED });
         Lookups.EVENT_STATUSES.push({ label: EventStatus.WITHDRAWN, value: EventStatus.WITHDRAWN });
+        Lookups.EVENT_STATUSES.push({ label: EventStatus.DENIED, value: EventStatus.DENIED });
 
         Lookups.RECIPIENT_TYPES = [];
         Lookups.RECIPIENT_TYPES.push({ label: RecipientTypes.USER, value: RecipientTypes.USER });

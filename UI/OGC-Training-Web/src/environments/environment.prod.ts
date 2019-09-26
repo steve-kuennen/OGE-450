@@ -6,13 +6,13 @@
 export const environment = {
     production: true,
     envName: 'prod',
-    oge450Url: 'https://ethics.omb.gov/oge450',
-    eventClearanceUrl: 'https://ethics.omb.gov/events',
-    apiUrl: 'https://ethics.omb.gov/api/api/',
-    clientId: 'd26b0eb6-6c0d-4292-8419-f3ea86a4f338',
     base: '/',
     debug: false,
     idleTimeout: 3540,
     idleCountdown: 60,
-    sharePointUrl: 'https://portal.omb.gov/sites/ogc/',
+    apiUrl: 'URL for API',
+    oge450Url: 'URL for OGE 450 Application',
+    eventClearanceUrl: 'URL for Event Clearance Application',
+    clientId: 'Active Directory Client ID for login',
+    sharePointUrl: 'URL to SharePoint Instance',
 };
